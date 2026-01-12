@@ -1,0 +1,118 @@
+/**
+ * DESIGN TOKENS - Baseado em Animalia Design System
+ * Fonte: Handoffs fornecidos pela TOTVS
+ * 
+ * Referências:
+ * - select - ps.pdf
+ * - switch - ps.pdf
+ */
+
+:root {
+  /* Brand Colors */
+  --color-brand-01-lightest: #E3F2FD;
+  --color-brand-01-light: #90CAF9;
+  --color-brand-01-base: #2196F3;
+  
+  /* Action Colors */
+  --color-action-default: #0077C8;
+  --color-action-hover: #0066B3;
+  --color-action-focus: #0077C8;
+  --color-action-disabled: #BDBDBD;
+  
+  /* Neutral Colors */
+  --color-neutral-light-00: #FFFFFF;
+  --color-neutral-light-05: #F5F5F5;
+  --color-neutral-light-20: #E0E0E0;
+  --color-neutral-light-30: #BDBDBD;
+  --color-neutral-dark-70: #757575;
+  --color-neutral-dark-90: #424242;
+  
+  /* Feedback Colors */
+  --color-feedback-negative-base: #D32F2F;
+  
+  /* TYPOGRAPHY */
+  --font-family-text: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  --font-size-default: 1rem; /* 16px */
+  --font-weight-normal: 400;
+  
+  /* Border */
+  --border-width-sm: 1px;
+  --border-width-md: 2px;
+  --border-width-lg: 3px;
+  --border-radius-md: 0.25rem; /* 4px */
+  
+  /* COMPONENT: SELECT */
+  /* Structure (Fixed values from handoff) */
+  --select-min-height: 2.75em; /* 44px */
+  --select-border-radius: var(--border-radius-md);
+  --select-border-width: var(--border-width-sm);
+  --select-border-style: solid;
+  --select-padding-horizontal: 0.5em; /* 8px */
+  --select-padding-vertical: 0.7em; /* 11px */
+  --select-font-weight: var(--font-weight-normal);
+  
+  /* Normal State */
+  --select-font-family: var(--font-family-text);
+  --select-font-size: var(--font-size-default);
+  --select-text-color: var(--color-neutral-dark-90);
+  --select-text-color-empty: var(--color-neutral-light-30);
+  --select-color: var(--color-neutral-dark-70); /* icon color */
+  --select-background: var(--color-neutral-light-05);
+  --select-border-color: var(--color-neutral-dark-70);
+  
+  /* Hover State */
+  --select-color-hover: var(--color-action-hover);
+  --select-background-hover: var(--color-brand-01-lightest);
+  
+  /* Focus State */
+  --select-color-focused: var(--color-action-default);
+  --select-outline-color-focused: var(--color-action-focus);
+  --select-outline-width: var(--border-width-lg);
+  --select-outline-style: solid;
+  --select-outline-offset: 2px;
+  
+  /* Disabled State */
+  --select-color-disabled: var(--color-action-disabled);
+  --select-background-disabled: var(--color-neutral-light-20);
+  
+  /* Error State */
+  --select-color-error: var(--color-feedback-negative-base);
+  
+  /* COMPONENT: SWITCH */
+  /* Structure (Fixed values from handoff) */
+  --switch-track-width: 3rem; 
+  --switch-track-height: 1rem;
+  --switch-key-size: 1.5rem;
+  --switch-key-border-width: var(--border-width-md);
+  --switch-key-border-radius: 100%;
+  --switch-key-border-style: solid;
+  
+  /* Normal - Unchecked */
+  --switch-color-unchecked: var(--color-neutral-light-00);
+  --switch-border-color: var(--color-neutral-dark-70);
+  --switch-track-unchecked: var(--color-neutral-light-20);
+  
+  /* Normal - Checked */
+  --switch-color-checked: var(--color-action-default);
+  --switch-track-checked: var(--color-brand-01-light);
+  --switch-icon-color: var(--color-neutral-light-00);
+  
+  /* Hover - Unchecked */
+  --switch-color-unchecked-hover: var(--color-brand-01-lightest);
+  
+  /* Hover - Checked */
+  --switch-color-checked-hover: var(--color-action-hover);
+  
+  /* Focus */
+  --switch-outline-color-focused: var(--color-action-focus);
+  --switch-outline-width: var(--border-width-lg);
+  --switch-outline-style: solid;
+  --switch-outline-offset: 2px;
+  
+  /* Disabled - Unchecked */
+  --switch-color-unchecked-disabled: var(--color-neutral-light-20);
+  
+  /* Disabled - Checked */
+  --switch-color-checked-disabled: var(--color-action-disabled);
+  --switch-icon-color-disabled: var(--color-neutral-light-00);
+}

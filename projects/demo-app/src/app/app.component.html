@@ -1,0 +1,146 @@
+<!-- Header -->
+<header class="showcase-header">
+  <div class="showcase-header__container">
+    <h1 class="showcase-header__title">Component Library Showcase</h1>
+    <nav class="showcase-nav">
+      <button class="showcase-nav__tab showcase-nav__tab--active">Select Component</button>
+      <button class="showcase-nav__tab">Switch Component</button>
+    </nav>
+  </div>
+</header>
+
+<!-- Main Content -->
+<main class="showcase">
+  <!-- Component Preview + Playground -->
+  <div class="showcase">
+    <section class="showcase__preview">
+      <h2 class="showcase__title">Component Preview</h2>
+      <div class="showcase__preview-area">
+        <ui-select
+          [(ngModel)]="selectedValue"
+          [options]="options"
+          [placeholder]="playgroundConfig.placeholder"
+          [disabled]="playgroundConfig.disabled"
+          [hasError]="playgroundConfig.hasError"
+          (selectionChange)="onSelectionChange($event)"
+        ></ui-select>
+        <p class="showcase__result">Valor selecionado: {{ selectedValue || 'nenhum' }}</p>
+      </div>
+    </section>
+
+    <!-- Playground (Controles) -->
+    <section class="showcase__playground">
+      <h2 class="showcase__subtitle">Playground</h2>
+      
+      <div class="playground">
+        <div class="playground__control">
+          <label class="playground__label">Placeholder:</label>
+          <input 
+            type="text" 
+            class="playground__input"
+            [(ngModel)]="playgroundConfig.placeholder"
+          />
+        </div>
+
+        <div class="playground__control">
+          <label class="playground__label">
+            <input 
+              type="checkbox" 
+              [(ngModel)]="playgroundConfig.disabled"
+            />
+            Disabled
+          </label>
+        </div>
+
+        <div class="playground__control">
+          <label class="playground__label">
+            <input 
+              type="checkbox" 
+              [(ngModel)]="playgroundConfig.hasError"
+            />
+            Error State
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Code Example -->
+    <section class="showcase__section showcase__section--code">
+      <h2 class="showcase__section-title">Code Example</h2>
+      <div class="code-example">
+        <pre class="code-example__block"><code>{{ codeExample }}</code></pre>
+        <button class="code-example__copy-btn" (click)="copyCode()">
+          {{ copied ? 'Copiado!' : 'Copiar código' }}
+        </button>
+      </div>
+    </section>
+
+    <!-- Documentation -->
+    <section class="showcase__section showcase__section--documentation">
+      <h2 class="showcase__section-title">Documentation</h2>
+      
+      <div class="documentation">
+        <div class="documentation__section">
+          <h3 class="documentation__title">Inputs</h3>
+          <table class="documentation__table">
+            <thead>
+              <tr>
+                <th>Propriedade</th>
+                <th>Tipo</th>
+                <th>Default</th>
+                <th>Descrição</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>options</code></td>
+                <td><code>SelectOption[]</code></td>
+                <td><code>[]</code></td>
+                <td>Lista de opções do select</td>
+              </tr>
+              <tr>
+                <td><code>placeholder</code></td>
+                <td><code>string</code></td>
+                <td>'Choose an option'</td>
+                <td>Texto quando nenhuma opção está selecionada</td>
+              </tr>
+              <tr>
+                <td><code>disabled</code></td>
+                <td><code>boolean</code></td>
+                <td><code>false</code></td>
+                <td>Desabilita o componente</td>
+              </tr>
+              <tr>
+                <td><code>hasError</code></td>
+                <td>boolean</td>
+                <td><code>false</code></td>
+                <td>Estado de erro visual</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Events -->
+        <div class="documentation__section">
+          <h3 class="documentation__subtitle">Eventos (Outputs)</h3>
+          <table class="documentation__table">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Tipo</th>
+                <th>Descrição</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>selectionChange</code></td>
+                <td><code>EventEmitter&lt;SelectOption | null&gt;</code></td>
+                <td>Emitido quando uma opção é selecionada</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
