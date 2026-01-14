@@ -1,4 +1,3 @@
-<!-- Header -->
 <header class="showcase-header">
   <div class="showcase-header__container">
     <h1 class="showcase-header__title">Apresentação da Biblioteca de Componentes</h1>
@@ -21,11 +20,9 @@
   </div>
 </header>
 
-<!-- Main Content -->
 <main class="showcase">
   @if (activeTab === 'select') {
     <div class="showcase__content">
-      <!-- Preview -->
       <section class="showcase__preview">
         <h2 class="showcase__title">Component Preview</h2>
         <div class="showcase__preview-area">
@@ -43,7 +40,6 @@
         </div>
       </section>
 
-      <!-- Playground -->
       <section class="showcase__playground">
         <h2 class="showcase__subtitle">Playground</h2>
         <div class="playground">
@@ -78,7 +74,6 @@
         </div>
       </section>
 
-      <!-- Code Example -->
       <section class="showcase__section showcase__section--code">
         <h2 class="showcase__section-title">Code Example</h2>
         <div class="code-example">
@@ -89,14 +84,6 @@
         </div>
       </section>
 
-      <!-- Example -->
-      <section class="showcase__section showcase__section--code">
-        <div class="code-example">
-          <select-example-component></select-example-component>
-        </div>
-      </section>
-
-      <!-- Documentation -->
       <section class="showcase__section showcase__section--documentation">
         <h2 class="showcase__section-title">Documentation</h2>
         
@@ -114,28 +101,28 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><code>options</code></td>
-                  <td><code>SelectOption[]</code></td>
-                  <td><code>[]</code></td>
-                  <td>Lista de opções do select</td>
+                  <td data-label="Propriedades"><code>options</code></td>
+                  <td data-label="Tipo"><code>SelectOption[]</code></td>
+                  <td data-label="Default"><code>[]</code></td>
+                  <td data-label="Descrição">Lista de opções do select</td>
                 </tr>
                 <tr>
-                  <td><code>placeholder</code></td>
-                  <td><code>string</code></td>
-                  <td>'Choose an option'</td>
-                  <td>Texto quando não tem opção selecionada</td>
+                  <td data-label="Propriedades"><code>placeholder</code></td>
+                  <td data-label="Tipo"><code>string</code></td>
+                  <td data-label="Default">'Choose an option'</td>
+                  <td data-label="Descrição">Texto quando não tem opção selecionada</td>
                 </tr>
                 <tr>
-                  <td><code>disabled</code></td>
-                  <td><code>boolean</code></td>
-                  <td><code>false</code></td>
-                  <td>Componente desabilitado</td>
+                  <td data-label="Propriedades"><code>disabled</code></td>
+                  <td data-label="Tipo"><code>boolean</code></td>
+                  <td data-label="Default"><code>false</code></td>
+                  <td data-label="Descrição">Componente desabilitado</td>
                 </tr>
                 <tr>
-                  <td><code>hasError</code></td>
-                  <td><code>boolean</code></td>
-                  <td><code>false</code></td>
-                  <td>Estado de erro visual</td>
+                  <td data-label="Propriedades"><code>hasError</code></td>
+                  <td data-label="Tipo"><code>boolean</code></td>
+                  <td data-label="Default"><code>false</code></td>
+                  <td data-label="Descrição">Estado de erro visual</td>
                 </tr>
               </tbody>
             </table>
@@ -153,21 +140,26 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><code>selectionChange</code></td>
-                  <td><code>EventEmitter&lt;SelectOption | null&gt;</code></td>
-                  <td>Emitido quando uma opção é selecionada.</td>
+                  <td data-label="Nome"><code>selectionChange</code></td>
+                  <td data-label="Tipo"><code>EventEmitter&lt;SelectOption | null&gt;</code></td>
+                  <td data-label="Descrição">Emitido quando uma opção é selecionada.</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
       </section>
+
+      <section class="showcase__section showcase__section--code">
+        <div class="code-example">
+          <select-example-component></select-example-component>
+        </div>
+      </section>     
     </div>
   }
 
   @if (activeTab === 'switch') {
     <div class="showcase__content">
-      <!-- Preview -->
       <section class="showcase__preview">
         <h2 class="showcase__title">Component Preview</h2>
         <div class="showcase__preview-area">
@@ -182,7 +174,6 @@
         </div>
       </section>
 
-      <!-- Playground -->
       <section class="showcase__playground">
         <h2 class="showcase__subtitle">Playground</h2>
         <div class="playground">
@@ -207,7 +198,6 @@
         </div>
       </section>
 
-      <!-- Code Example -->
       <section class="showcase__section showcase__section--code">
         <h2 class="showcase__section-title">Code Example</h2>
         <div class="code-example">
@@ -218,12 +208,6 @@
         </div>
       </section>
 
-      <!-- Reactive Forms Example -->
-      <section class="showcase__section showcase__section--code">
-        <switch-example-component></switch-example-component>
-      </section>
-
-      <!-- Documentation -->
       <section class="showcase__section showcase__section--documentation">
         <h2 class="showcase__section-title">Documentação</h2>
         
@@ -241,28 +225,33 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><code>label</code></td>
-                  <td><code>string</code></td>
-                  <td><code>''</code></td>
-                  <td>Texto da label</td>
+                  <td data-label="Propriedades"><code>label</code></td>
+                  <td data-label="Tipo"><code>string</code></td>
+                  <td data-label="Default"><code>''</code></td>
+                  <td data-label="Descrição">Texto da label</td>
                 </tr>
                 <tr>
-                  <td><code>disabled</code></td>
-                  <td><code>boolean</code></td>
-                  <td><code>false</code></td>
-                  <td>Componente desabilitado</td>
+                  <td data-label="Propriedades"><code>disabled</code></td>
+                  <td data-label="Tipo"><code>boolean</code></td>
+                  <td data-label="Default"><code>false</code></td>
+                  <td data-label="Descrição">Componente desabilitado</td>
                 </tr>
                 <tr>
-                  <td><code>hasError</code></td>
-                  <td><code>boolean</code></td>
-                  <td><code>false</code></td>
-                  <td>Estado de erro visual</td>
+                  <td data-label="Propriedades"><code>hasError</code></td>
+                  <td data-label="Tipo"><code>boolean</code></td>
+                  <td data-label="Default"><code>false</code></td>
+                  <td data-label="Descrição">Estado de erro visual</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
       </section>
+
+      <section class="showcase__section showcase__section--code">
+        <switch-example-component></switch-example-component>
+      </section>
+
     </div>
   }
 </main>

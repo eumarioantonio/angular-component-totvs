@@ -9,6 +9,7 @@
     type="button"
     class="select__trigger"
     [class.select__trigger--has-value]="hasSelection"
+    [attr.role]="'button'"
     [attr.aria-haspopup]="'listbox'"
     [attr.aria-expanded]="isOpen"
     [attr.aria-label]="placeholder"

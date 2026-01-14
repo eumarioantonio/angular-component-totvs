@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { SelectOption, UiSelectComponent, UiSwitchComponent } from '../../../ui/src/public-api';
 import { FormsModule } from '@angular/forms';
-import { SelectExampleComponent } from './feature/select-example/select-example.component';
-import { SwitchExampleComponent } from './feature/switch-example/switch-example.component';
+import { SelectExampleComponent } from './components/select-example/select-example.component';
+import { SwitchExampleComponent } from './components/switch-example/switch-example.component';
 
 @Component({
   selector: 'app-root',
