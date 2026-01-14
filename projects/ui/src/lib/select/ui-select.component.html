@@ -1,0 +1,61 @@
+<div
+  class="select-container"
+  [class.select--disabled]="disabled"
+  [class.select--error]="hasError"
+  [class.select--open]="isOpen"
+>
+  <button
+    #selectButton
+    type="button"
+    class="select__trigger"
+    [class.select__trigger--has-value]="hasSelection"
+    [attr.role]="'button'"
+    [attr.aria-haspopup]="'listbox'"
+    [attr.aria-expanded]="isOpen"
+    [attr.aria-label]="placeholder"
+    [disabled]="disabled"
+    (click)="toggle()"
+  >
+    <span class="select__label">{{ selectedLabel }}</span>
+
+    <svg
+      class="select__icon"
+      [class.select__icon--rotated]="isOpen"
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+    >
+      <path
+        d="M4 6l4 4 4-4"
+        stroke="currentColor"
+        stroke-width="2"
+        fill="none"
+      />
+    </svg>
+  </button>
+
+  @if (isOpen) {
+		<ul
+			#optionsList
+			class="select__options"
+			role="listbox"
+			[attr.aria-label]="placeholder"
+		>
+			@for (option of options; track $index) {
+				<li
+					class="select__option"
+					[class.select__option--selected]="option.value === value"
+					[class.select__option--focused]="$index === focusedIndex"
+					[class.select__option--disabled]="option.disabled"
+					[attr.role]="'option'"
+					[attr.aria-selected]="option.value === value"
+					[attr.aria-disabled]="option.disabled"
+					(click)="selectOption(option)"
+					(mouseenter)="onOptionHover($index)"
+				>
+					{{ option.label }}
+				</li>
+			}
+		</ul>
+  }
+</div>

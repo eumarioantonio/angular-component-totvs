@@ -1,0 +1,257 @@
+@import '../../ui/src/lib/_styles/_tokens.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family-text, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
+  font-size: var(--font-size-default, 1rem);
+  color: var(--color-neutral-dark-90, #424242);
+  background: #f8f9fa;
+  line-height: 1.5;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &--primary {
+    background-color: #6750A4;
+    color: white;
+    
+    &:hover {
+      background-color: #5A3E96;
+    }
+  }
+
+  &--secondary {
+    background-color: #E0E0E0;
+    color: #333;
+    
+    &:hover {
+      background-color: #BDBDBD;
+    }
+  }
+
+  &--outline {
+    background-color: transparent;
+    color: #6750A4;
+    border: 2px solid #6750A4;
+    
+    &:hover {
+      background-color: #6750A4;
+      color: white;
+    }
+  }
+}
+
+.notification-settings {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.settings-header {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.settings-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 8px 0;
+}
+
+.settings-subtitle {
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+}
+
+.success-message {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.settings-form {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.settings-section {
+  padding: 24px;
+  border-bottom: 1px solid #e5e5e5;
+  transition: opacity 0.3s ease;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+
+  &.section-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background-color: #6750A4;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 12px;
+}
+
+.switch-group,
+.form-group {
+  padding: 16px 0;
+  
+  &:not(:last-child) {
+    border-bottom: 1px solid #f5f5f5;
+  }
+
+  .error-message {
+    margin-top: 4px;
+    font-size: 12px;
+    color: #dc3545;
+  }
+}
+
+.switch-description {
+  margin: 8px 0 0 0;
+  padding-left: 60px;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  padding: 24px;
+  background-color: #f9f9f9;
+  border-radius: 0 0 12px 12px;
+  flex-wrap: wrap;
+}
+
+.form-debug {
+  margin-top: 24px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.debug-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 12px 0;
+}
+
+.debug-content {
+  background-color: #2d2d2d;
+  color: #a9dc76;
+  padding: 16px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: 'Courier New', monospace;
+  overflow-x: auto;
+  margin: 0 0 12px 0;
+}
+
+.debug-info {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.debug-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  background-color: #666;
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 4px;
+
+  &--success {
+    background-color: #28a745;
+  }
+}
+
+// Responsivo
+@media (max-width: 768px) {
+  .notification-settings {
+    padding: 16px;
+  }
+
+  .settings-title {
+    font-size: 24px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    
+    .btn {
+      width: 100%;
+    }
+  }
+
+  .switch-description {
+    padding-left: 0;
+    margin-top: 4px;
+  }
+}

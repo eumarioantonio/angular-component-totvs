@@ -1,0 +1,257 @@
+<header class="showcase-header">
+  <div class="showcase-header__container">
+    <h1 class="showcase-header__title">Apresentação da Biblioteca de Componentes</h1>
+    <nav class="showcase-nav">
+      <button 
+        class="showcase-nav__tab" 
+        [class.showcase-nav__tab--active]="activeTab === 'select'"
+        (click)="switchTab('select')"
+      >
+        Select Component
+      </button>
+      <button 
+        class="showcase-nav__tab"
+        [class.showcase-nav__tab--active]="activeTab === 'switch'"
+        (click)="switchTab('switch')"
+      >
+        Switch Component
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main class="showcase">
+  @if (activeTab === 'select') {
+    <div class="showcase__content">
+      <section class="showcase__preview">
+        <h2 class="showcase__title">Component Preview</h2>
+        <div class="showcase__preview-area">
+          <ui-select
+            [(ngModel)]="selectValue"
+            [options]="selectOptions"
+            [placeholder]="selectConfig.placeholder"
+            [disabled]="selectConfig.disabled"
+            [hasError]="selectConfig.hasError"
+            (selectionChange)="onSelectionChange($event)"
+          ></ui-select>
+          <p class="showcase__result">
+            Valor selecionado: {{ selectValue || 'null' }}
+          </p>
+        </div>
+      </section>
+
+      <section class="showcase__playground">
+        <h2 class="showcase__subtitle">Playground</h2>
+        <div class="playground">
+          <div class="playground__control">
+            <label class="playground__label">Placeholder:</label>
+            <input 
+              type="text" 
+              class="playground__input"
+              [(ngModel)]="selectConfig.placeholder"
+            />
+          </div>
+
+          <div class="playground__control">
+            <label class="playground__label">
+              <input 
+                type="checkbox" 
+                [(ngModel)]="selectConfig.disabled"
+              />
+              Disabled
+            </label>
+          </div>
+
+          <div class="playground__control">
+            <label class="playground__label">
+              <input 
+                type="checkbox" 
+                [(ngModel)]="selectConfig.hasError"
+              />
+              Error State
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section class="showcase__section showcase__section--code">
+        <h2 class="showcase__section-title">Code Example</h2>
+        <div class="code-example">
+          <pre class="code-example__block"><code>{{ codeExample }}</code></pre>
+          <button class="code-example__copy-btn" (click)="copyCode()">
+            {{ copied ? 'Copiado!' : 'Copiar código' }}
+          </button>
+        </div>
+      </section>
+
+      <section class="showcase__section showcase__section--documentation">
+        <h2 class="showcase__section-title">Documentation</h2>
+        
+        <div class="documentation">
+          <div class="documentation__section">
+            <h3 class="documentation__title">Inputs</h3>
+            <table class="documentation__table">
+              <thead>
+                <tr>
+                  <th>Propriedades</th>
+                  <th>Tipo</th>
+                  <th>Default</th>
+                  <th>descrição</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Propriedades"><code>options</code></td>
+                  <td data-label="Tipo"><code>SelectOption[]</code></td>
+                  <td data-label="Default"><code>[]</code></td>
+                  <td data-label="Descrição">Lista de opções do select</td>
+                </tr>
+                <tr>
+                  <td data-label="Propriedades"><code>placeholder</code></td>
+                  <td data-label="Tipo"><code>string</code></td>
+                  <td data-label="Default">'Choose an option'</td>
+                  <td data-label="Descrição">Texto quando não tem opção selecionada</td>
+                </tr>
+                <tr>
+                  <td data-label="Propriedades"><code>disabled</code></td>
+                  <td data-label="Tipo"><code>boolean</code></td>
+                  <td data-label="Default"><code>false</code></td>
+                  <td data-label="Descrição">Componente desabilitado</td>
+                </tr>
+                <tr>
+                  <td data-label="Propriedades"><code>hasError</code></td>
+                  <td data-label="Tipo"><code>boolean</code></td>
+                  <td data-label="Default"><code>false</code></td>
+                  <td data-label="Descrição">Estado de erro visual</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="documentation__section">
+            <h3 class="documentation__subtitle">Eventos (Outputs)</h3>
+            <table class="documentation__table">
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Tipo</th>
+                  <th>Descrição</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Nome"><code>selectionChange</code></td>
+                  <td data-label="Tipo"><code>EventEmitter&lt;SelectOption | null&gt;</code></td>
+                  <td data-label="Descrição">Emitido quando uma opção é selecionada.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="showcase__section showcase__section--code">
+        <div class="code-example">
+          <select-example-component></select-example-component>
+        </div>
+      </section>     
+    </div>
+  }
+
+  @if (activeTab === 'switch') {
+    <div class="showcase__content">
+      <section class="showcase__preview">
+        <h2 class="showcase__title">Component Preview</h2>
+        <div class="showcase__preview-area">
+          <ui-switch
+            [(ngModel)]="switchValue"
+            [label]="switchConfig.label"
+            [disabled]="switchConfig.disabled"
+          ></ui-switch>
+          <p class="showcase__result">
+            Current value: {{ switchValue ? 'True' : 'False' }}
+          </p>
+        </div>
+      </section>
+
+      <section class="showcase__playground">
+        <h2 class="showcase__subtitle">Playground</h2>
+        <div class="playground">
+          <div class="playground__control">
+            <label class="playground__label">Label:</label>
+            <input 
+              type="text" 
+              class="playground__input"
+              [(ngModel)]="switchConfig.label"
+            />
+          </div>
+
+          <div class="playground__control">
+            <label class="playground__label">
+              <input 
+                type="checkbox" 
+                [(ngModel)]="switchConfig.disabled"
+              />
+              Disabled
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section class="showcase__section showcase__section--code">
+        <h2 class="showcase__section-title">Code Example</h2>
+        <div class="code-example">
+          <pre class="code-example__block"><code>{{ codeExample }}</code></pre>
+          <button class="code-example__copy-btn" (click)="copyCode()">
+            {{ copied ? 'Copiado!' : 'Copiar código' }}
+          </button>
+        </div>
+      </section>
+
+      <section class="showcase__section showcase__section--documentation">
+        <h2 class="showcase__section-title">Documentação</h2>
+        
+        <div class="documentation">
+          <div class="documentation__section">
+            <h3 class="documentation__title">Inputs</h3>
+            <table class="documentation__table">
+              <thead>
+                <tr>
+                  <th>Propriedades</th>
+                  <th>Tipo</th>
+                  <th>Default</th>
+                  <th>descrição</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Propriedades"><code>label</code></td>
+                  <td data-label="Tipo"><code>string</code></td>
+                  <td data-label="Default"><code>''</code></td>
+                  <td data-label="Descrição">Texto da label</td>
+                </tr>
+                <tr>
+                  <td data-label="Propriedades"><code>disabled</code></td>
+                  <td data-label="Tipo"><code>boolean</code></td>
+                  <td data-label="Default"><code>false</code></td>
+                  <td data-label="Descrição">Componente desabilitado</td>
+                </tr>
+                <tr>
+                  <td data-label="Propriedades"><code>hasError</code></td>
+                  <td data-label="Tipo"><code>boolean</code></td>
+                  <td data-label="Default"><code>false</code></td>
+                  <td data-label="Descrição">Estado de erro visual</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="showcase__section showcase__section--code">
+        <switch-example-component></switch-example-component>
+      </section>
+
+    </div>
+  }
+</main>

@@ -1,0 +1,84 @@
+<div class="notification-settings">
+  <div class="settings-header">
+    <h2 class="settings-title">📋 Reactive Forms com Select</h2>
+    <p class="settings-subtitle">Exemplo completo de formulário com validações</p>
+    
+    @if (savedMessage) {
+      <div class="success-message">{{ savedMessage }}</div>
+    }
+  </div>
+
+  <form [formGroup]="testForm" (ngSubmit)="onSubmit()" class="settings-form">
+    <!-- Form Fields -->
+    <div class="settings-section">
+      <div class="section-header">
+        <h3 class="section-title">Informações do Formulário</h3>
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label">
+          País (Obrigatório):
+        </label>
+        <ui-select
+          formControlName="country"
+          [options]="countryOptions"
+          placeholder="Selecione um país"
+          [hasError]="!!(testForm.get('country')?.invalid && testForm.get('country')?.touched)"
+        ></ui-select>
+        
+        @if (testForm.get('country')?.invalid && testForm.get('country')?.touched) {
+          <div class="error-message">
+            Campo obrigatório
+          </div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">
+          Categoria (Opcional):
+        </label>
+        <ui-select
+          formControlName="category"
+          [options]="categoryOptions"
+          placeholder="Selecione uma categoria"
+        ></ui-select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">
+          Status (Desabilitado):
+        </label>
+        <ui-select
+          formControlName="status"
+          [options]="statusOptions"
+          placeholder="Status desabilitado"
+        ></ui-select>
+      </div>
+    </div>
+
+    <!-- Botões de Ação -->
+    <div class="form-actions">
+      <button type="button" class="btn btn--secondary" (click)="resetForm()">Resetaurar Padrão</button>
+      <button type="button" class="btn btn--secondary" (click)="toggleStatus()">{{ statusDisabled ? 'Habilitar' : 'Desabilitar' }} Status</button>
+      <button type="button" class="btn btn--outline" (click)="patchValue()">Preencher Valores</button>
+      <button type="submit" class="btn btn--primary" [disabled]="testForm.invalid">Enviar Formulário</button>
+    </div>
+
+    <!-- Estado do Form (Debug) -->
+    <div class="form-debug">
+      <h4 class="debug-title">Estado do Formulário (Reactive Forms)</h4>
+      <pre class="debug-content">{{ testForm.value | json }}</pre>
+      <div class="debug-info">
+        <span class="debug-badge" [class.debug-badge--success]="testForm.valid">
+          Valid: {{ testForm.valid }}
+        </span>
+        <span class="debug-badge">
+          Dirty: {{ testForm.dirty }}
+        </span>
+        <span class="debug-badge">
+          Touched: {{ testForm.touched }}
+        </span>
+      </div>
+    </div>
+  </form>
+</div>
