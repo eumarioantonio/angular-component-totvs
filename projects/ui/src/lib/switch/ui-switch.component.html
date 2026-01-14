@@ -1,0 +1,31 @@
+<div 
+  class="switch-container"
+  [class.switch--disabled]="disabled"
+>
+  @if (label) {
+    <label class="switch__label" (click)="toggle()">
+      {{ label }}
+    </label>
+  }
+  <button
+    type="button"
+    role="switch"
+    class="switch"
+    [class.switch--checked]="value"
+    [attr.aria-checked]="value"
+    [attr.aria-label]="label || 'Toggle switch'"
+    [disabled]="disabled"
+    (click)="toggle()"
+    (keydown)="onKeyDown($event)"
+  >
+    <span class="switch__track">
+      <span class="switch__thumb">
+        @if (value) {
+          <svg class="switch__icon" width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M10 3L4.5 8.5L2 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        }
+      </span>
+    </span>
+  </button>
+</div>

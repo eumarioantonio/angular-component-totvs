@@ -10,13 +10,13 @@
 :root {
   /* Brand Colors */
   --color-brand-01-lightest: #E3F2FD;
-  --color-brand-01-light: #90CAF9;
-  --color-brand-01-base: #2196F3;
+  --color-brand-01-light: #6060b4;
+  --color-brand-01-base: #4e4e96;
   
   /* Action Colors */
-  --color-action-default: #0077C8;
-  --color-action-hover: #0066B3;
-  --color-action-focus: #0077C8;
+  --color-action-default: #4545a1;
+  --color-action-hover: #9898cd;
+  --color-action-focus: #0b0b37;
   --color-action-disabled: #BDBDBD;
   
   /* Neutral Colors */
@@ -24,31 +24,31 @@
   --color-neutral-light-05: #F5F5F5;
   --color-neutral-light-20: #E0E0E0;
   --color-neutral-light-30: #BDBDBD;
+  --color-neutral-dark-50: #515162;
   --color-neutral-dark-70: #757575;
   --color-neutral-dark-90: #424242;
   
   /* Feedback Colors */
-  --color-feedback-negative-base: #D32F2F;
+  --color-feedback-negative-base: #be3e37;
   
   /* TYPOGRAPHY */
   --font-family-text: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-  --font-size-default: 1rem; /* 16px */
+  --font-size-default: 1rem;
   --font-weight-normal: 400;
   
   /* Border */
   --border-width-sm: 1px;
   --border-width-md: 2px;
   --border-width-lg: 3px;
-  --border-radius-md: 0.25rem; /* 4px */
+  --border-radius-md: 0.25rem;
   
   /* COMPONENT: SELECT */
-  /* Structure (Fixed values from handoff) */
-  --select-min-height: 2.75em; /* 44px */
+  --select-min-height: 2.75em;
   --select-border-radius: var(--border-radius-md);
   --select-border-width: var(--border-width-sm);
   --select-border-style: solid;
-  --select-padding-horizontal: 0.5em; /* 8px */
-  --select-padding-vertical: 0.7em; /* 11px */
+  --select-padding-horizontal: 0.5em;
+  --select-padding-vertical: 0.7em;
   --select-font-weight: var(--font-weight-normal);
   
   /* Normal State */
@@ -79,7 +79,6 @@
   --select-color-error: var(--color-feedback-negative-base);
   
   /* COMPONENT: SWITCH */
-  /* Structure (Fixed values from handoff) */
   --switch-track-width: 3rem; 
   --switch-track-height: 1rem;
   --switch-key-size: 1.5rem;
@@ -89,16 +88,16 @@
   
   /* Normal - Unchecked */
   --switch-color-unchecked: var(--color-neutral-light-00);
-  --switch-border-color: var(--color-neutral-dark-70);
-  --switch-track-unchecked: var(--color-neutral-light-20);
+  --switch-border-color: var(--color-neutral-dark-50);
+  --switch-track-unchecked: var(--color-neutral-light-30);
   
   /* Normal - Checked */
   --switch-color-checked: var(--color-action-default);
-  --switch-track-checked: var(--color-brand-01-light);
+  --switch-track-checked: var(--color-action-hover);
   --switch-icon-color: var(--color-neutral-light-00);
   
   /* Hover - Unchecked */
-  --switch-color-unchecked-hover: var(--color-brand-01-lightest);
+  --switch-color-unchecked-hover: var(--color-action-hover);
   
   /* Hover - Checked */
   --switch-color-checked-hover: var(--color-action-hover);

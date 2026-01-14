@@ -50,7 +50,7 @@
 					[attr.aria-selected]="option.value === value"
 					[attr.aria-disabled]="option.disabled"
 					(click)="selectOption(option)"
-					(mouseenter)="focusedIndex = $index; cdr.markForCheck()"
+					(mouseenter)="onOptionHover($index)"
 				>
 					{{ option.label }}
 				</li>

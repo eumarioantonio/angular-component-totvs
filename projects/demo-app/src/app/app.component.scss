@@ -1,6 +1,6 @@
 .showcase-header {
-  background: #ffffff;
-  border-bottom: 1px solid #e0e0e0;
+  background: var(--color-neutral-light-00);
+  border-bottom: 1px solid var(--color-neutral-light-20);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   position: sticky;
   top: 0;
@@ -16,7 +16,7 @@
     margin: 0 0 1rem 0;
     font-size: 1.75rem;
     font-weight: 600;
-    color: #424242;
+    color: var(--color-neutral-dark-90);
   }
 }
 
@@ -26,25 +26,25 @@
   
   &__tab {
     padding: 0.625rem 1.25rem;
-    border: 1px solid #e0e0e0;
-    background: white;
+    border: 1px solid var(--color-neutral-light-20);
+    background: var(--color-neutral-light-00);
     cursor: pointer;
     border-radius: 6px;
     font-size: 0.875rem;
     font-weight: 500;
     transition: all 0.2s ease;
-    color: #757575;
+    color: var(--color-neutral-dark-70);
     
     &:hover:not(&--active) {
-      background: #f5f5f5;
-      border-color: #bdbdbd;
+      background: var(--color-neutral-light-05);
+      border-color: var(--color-neutral-light-30);
     }
     
     &--active {
-      background: #0077C8;
-      color: white;
-      border-color: #0077C8;
-      box-shadow: 0 2px 4px rgba(0, 119, 200, 0.2);
+      background: var(--color-brand-01-base);
+      color: var(--color-neutral-light-00);
+      border-color: var(--color-brand-01-light);
+      box-shadow: 0 2px 4px rgba(58, 51, 150, 0.2);
     }
   }
 }
@@ -77,14 +77,14 @@
   &__title {
     font-size: 1.125rem;
     font-weight: 600;
-    color: #424242;
+    color: var(--color-neutral-dark-90);
     margin: 0 0 1rem 0;
   }
   
   &__subtitle {
     font-size: 1.125rem;
     font-weight: 600;
-    color: #424242;
+    color: var(--color-neutral-dark-90);
     margin: 0 0 1rem 0;
   }
   
@@ -94,20 +94,20 @@
     flex-direction: column;
     gap: 1rem;
     padding: 1.5rem;
-    background: #f5f5f5;
+    background: var(--color-neutral-light-05);
     border-radius: 6px;
-    border: 2px dashed #e0e0e0;
+    border: 2px dashed var(--color-neutral-light-20);
   }
   
   &__result {
     font-size: 0.875rem;
-    color: #757575;
+    color: var(--color-neutral-dark-70);
     margin: 0.5rem 0 0 0;
   }
   
   &__section {
     grid-column: 1 / -1;
-    background: white;
+    background: var(--color-neutral-light-00);
     border-radius: 8px;
     padding: 1.5rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -115,15 +115,11 @@
     &-title {
       font-size: 1.125rem;
       font-weight: 600;
-      color: #424242;
+      color: var(--color-neutral-dark-90);
       margin: 0 0 1rem 0;
     }
   }
 }
-
-// =========================================
-// PLAYGROUND
-// =========================================
 
 .playground {
   display: flex;
@@ -139,7 +135,7 @@
   &__label {
     font-size: 0.875rem;
     font-weight: 500;
-    color: #424242;
+    color: var(--color-neutral-dark-90);
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -152,22 +148,18 @@
   
   &__input {
     padding: 0.5rem 0.75rem;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--color-neutral-light-20);
     border-radius: 4px;
     font-size: 0.875rem;
     transition: all 0.2s;
     
     &:focus {
       outline: none;
-      border-color: #0077C8;
+      border-color: var(--color-brand-01-light);
       box-shadow: 0 0 0 3px rgba(0, 119, 200, 0.1);
     }
   }
 }
-
-// =========================================
-// CODE EXAMPLE
-// =========================================
 
 .code-example {
   position: relative;
@@ -193,7 +185,7 @@
     top: 1rem;
     right: 1rem;
     padding: 0.5rem 1rem;
-    background: #0077C8;
+    background: var(--color-brand-01-base);
     color: white;
     border: none;
     border-radius: 4px;
@@ -203,20 +195,11 @@
     transition: all 0.2s;
     
     &:hover {
-      background: #0066B3;
-      transform: translateY(-1px);
+      background: var(--color-brand-01-light);
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
-    
-    &:active {
-      transform: translateY(0);
     }
   }
 }
-
-// =========================================
-// DOCUMENTATION
-// =========================================
 
 .documentation {
   &__section {
@@ -228,14 +211,14 @@
   &__title {
     font-size: 1rem;
     font-weight: 600;
-    color: #424242;
+    color: var(--color-neutral-dark-90);
     margin: 0 0 0.75rem 0;
   }
   
   &__subtitle {
     font-size: 1rem;
     font-weight: 600;
-    color: #424242;
+    color: var(--color-neutral-dark-90);
     margin: 0 0 0.75rem 0;
   }
   
@@ -245,20 +228,20 @@
     font-size: 0.875rem;
     
     thead {
-      background: #f5f5f5;
+      background: var(--color-neutral-light-05);
       
       th {
         text-align: left;
         padding: 0.75rem;
         font-weight: 600;
-        color: #424242;
-        border-bottom: 2px solid #e0e0e0;
+        color: var(--color-neutral-dark-90);
+        border-bottom: 2px solid var(--color-neutral-light-20);
       }
     }
     
     tbody {
       tr {
-        border-bottom: 1px solid #e0e0e0;
+        border-bottom: 1px solid var(--color-neutral-light-20);
         transition: background 0.2s;
         
         &:hover {
@@ -275,7 +258,7 @@
         color: #757575;
         
         code {
-          background: #f5f5f5;
+          background: var(--color-neutral-light-05);
           padding: 0.125rem 0.375rem;
           border-radius: 3px;
           font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
@@ -286,10 +269,6 @@
     }
   }
 }
-
-// =========================================
-// RESPONSIVE
-// =========================================
 
 @media (max-width: 768px) {
   .showcase-header {

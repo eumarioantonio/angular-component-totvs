@@ -1,0 +1,19 @@
+
+// Responsivo
+@media (max-width: 768px) {
+  .reactive-form-example {
+    padding: 16px;
+  }
+
+  .example-title {
+    font-size: 24px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    
+    .btn {
+      width: 100%;
+    }
+  }
+}

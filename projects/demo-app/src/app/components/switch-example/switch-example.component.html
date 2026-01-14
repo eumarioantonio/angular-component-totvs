@@ -1,0 +1,151 @@
+<div class="notification-settings">
+  <div class="settings-header">
+    <h2 class="settings-title">⚙️ Configurações de Notificações</h2>
+    <p class="settings-subtitle">
+      Gerencie como você deseja receber notificações
+    </p>
+
+    @if (savedMessage) {
+    <div class="success-message">{{ savedMessage }}</div>
+    }
+  </div>
+
+  <form
+    [formGroup]="notificationForm"
+    (ngSubmit)="onSubmit()"
+    class="settings-form"
+  >
+    <!-- Status Geral -->
+    <div class="settings-section">
+      <div class="section-header">
+        <h3 class="section-title">Status Geral</h3>
+        <span class="badge">{{ activeNotificationsCount }} ativas</span>
+      </div>
+
+      <div class="switch-group">
+        <ui-switch
+					formControlName="enableNotifications"
+          label="Habilitar Notificações"
+        ></ui-switch>
+        <p class="switch-description">Controle mestre para todas as notificações</p>
+      </div>
+    </div>
+
+    <!-- Canais de Notificação -->
+    <div
+      class="settings-section"
+      [class.section-disabled]="!notificationsEnabled"
+    >
+      <div class="section-header">
+        <h3 class="section-title">📬 Canais de Notificação</h3>
+      </div>
+
+      <div class="switch-group">
+        <ui-switch
+          formControlName="emailNotifications"
+          label="Email"
+        ></ui-switch>
+        <p class="switch-description">Receba notificações por email</p>
+      </div>
+
+      <div class="switch-group">
+        <ui-switch
+          formControlName="pushNotifications"
+          label="Push Notifications"
+        ></ui-switch>
+        <p class="switch-description">
+          Notificações no navegador e dispositivos móveis
+        </p>
+      </div>
+
+      <div class="switch-group">
+        <ui-switch formControlName="smsNotifications" label="SMS"></ui-switch>
+        <p class="switch-description">Mensagens de texto importantes</p>
+      </div>
+    </div>
+
+    <!-- Tipos de Notificação -->
+    <div
+      class="settings-section"
+      [class.section-disabled]="!notificationsEnabled"
+    >
+      <div class="section-header">
+        <h3 class="section-title">🔔 Tipos de Notificação</h3>
+      </div>
+
+      <div class="switch-group">
+        <ui-switch
+          formControlName="securityAlerts"
+          label="Alertas de Segurança"
+        ></ui-switch>
+        <p class="switch-description">
+          Avisos sobre atividades suspeitas e segurança da conta
+        </p>
+      </div>
+
+      <div class="switch-group">
+        <ui-switch
+          formControlName="productUpdates"
+          label="Atualizações de Produto"
+        ></ui-switch>
+        <p class="switch-description">Novos recursos e melhorias do sistema</p>
+      </div>
+
+      <div class="switch-group">
+        <ui-switch
+          formControlName="marketingEmails"
+          label="Emails de Marketing"
+        ></ui-switch>
+        <p class="switch-description">
+          Ofertas especiais e novidades promocionais
+        </p>
+      </div>
+    </div>
+
+    <!-- Preferências -->
+    <div class="settings-section">
+      <div class="section-header">
+        <h3 class="section-title">🎨 Preferências</h3>
+      </div>
+
+      <div class="switch-group">
+        <ui-switch formControlName="darkMode" label="Modo Escuro"></ui-switch>
+        <p class="switch-description">Interface com tema escuro</p>
+      </div>
+
+      <div class="switch-group">
+        <ui-switch
+          formControlName="soundEffects"
+          label="Efeitos Sonoros"
+        ></ui-switch>
+        <p class="switch-description">Sons de notificação e feedback</p>
+      </div>
+    </div>
+
+    <!-- Botões de Ação -->
+    <div class="form-actions">
+      <button type="button" class="btn btn--secondary" (click)="toggleAll(false)">Desabilitar Tudo</button>
+      <button type="button" class="btn btn--secondary" (click)="toggleAll(true)">Habilitar Tudo</button>
+      <button type="button" class="btn btn--outline" (click)="resetForm()">Restaurar Padrão</button>
+      <button type="submit" class="btn btn--primary">Salvar Configurações</button>
+    </div>
+
+    <!-- Estado do Form (Debug) -->
+    <div class="form-debug">
+      <h4 class="debug-title">Estado do Formulário (Reactive Forms)</h4>
+      <pre class="debug-content">{{ notificationForm.value | json }}</pre>
+      <div class="debug-info">
+        <span
+          class="debug-badge"
+          [class.debug-badge--success]="notificationForm.valid"
+        >
+          Valid: {{ notificationForm.valid }}
+        </span>
+        <span class="debug-badge"> Dirty: {{ notificationForm.dirty }} </span>
+        <span class="debug-badge">
+          Touched: {{ notificationForm.touched }}
+        </span>
+      </div>
+    </div>
+  </form>
+</div>

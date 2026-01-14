@@ -22,6 +22,8 @@ export interface SelectOption {
 })
 export class UiSelectComponent implements ControlValueAccessor {
   private changeDetector = inject(ChangeDetectorRef);
+  private elementRef = inject(ElementRef);
+
   private onChange: (value: string) => void = () => {};
   private onTouched: () => void = () => {};
   
@@ -38,7 +40,6 @@ export class UiSelectComponent implements ControlValueAccessor {
   isOpen = false;
   selectedOption: SelectOption | null = null;
   focusedIndex = -1;
-  
 
   get selectedLabel(): string {
     if (this.value === null) return this.placeholder;
@@ -51,25 +52,19 @@ export class UiSelectComponent implements ControlValueAccessor {
     return this.value !== null;
   }
 
-  constructor(
-    public cdr: ChangeDetectorRef,
-    private elementRef: ElementRef
-  ) {}
-
   ngOnInit() {
     if (this.value !== null) {
       this.focusedIndex = this.options.findIndex(opt => opt.value === this.value);
     }
   }
 
-   writeValue(value: any): void {
+  writeValue(value: any): void {
     this.value = value;
     
     if (value !== null) {
       this.focusedIndex = this.options.findIndex(opt => opt.value === value);
     }
-    
-     this.changeDetector.detectChanges();;
+    this.changeDetector.detectChanges();
   }
 
   registerOnChange(fn: any): void {
@@ -184,6 +179,11 @@ export class UiSelectComponent implements ControlValueAccessor {
         }
         break;
     }
+  }
+
+  onOptionHover(index: number): void {
+    this.focusedIndex = index;
+    this.changeDetector.markForCheck();
   }
 
   private moveFocusDown(): void {
